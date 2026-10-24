@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed — AURA Sound Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/components.css">
+  <link rel="stylesheet" href="/pages.css">
+</head>
+<body>
+  <aside class="announcement-bar"><div class="container"><p>Complimentary Express Shipping on all orders over ₹5,000 / $60</p></div></aside>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+      <nav class="site-nav"><ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-route="home">Home</a></li>
+        <li><a href="catalog.html" class="nav-link" data-route="catalog">Speakers</a></li>
+        <li><a href="technology.html" class="nav-link" data-route="technology">Acoustic Tech</a></li>
+        <li><a href="support.html" class="nav-link" data-route="support">Support &amp; Warranty</a></li>
+      </ul></nav>
+      <div class="header-actions">
+        <select id="currency-toggle" class="currency-select"><option value="INR" selected>INR (₹)</option><option value="USD">USD ($)</option></select>
+        <button type="button" class="btn btn-secondary cart-btn" id="open-cart-btn"><span>🛍</span><span class="cart-text">Bag</span><span class="cart-count-badge" id="cart-counter">0</span></button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"><ul>
+      <li><a href="index.html" data-route="home">Home</a></li>
+      <li><a href="catalog.html" data-route="catalog">Speakers</a></li>
+      <li><a href="technology.html" data-route="technology">Acoustic Tech</a></li>
+      <li><a href="support.html" data-route="support">Support &amp; Warranty</a></li>
+    </ul></nav>
+  </header>
+
+  <main class="container section">
+    <div class="success-card">
+      <div class="success-icon-wrap">✓</div>
+      <h2>Order Successfully Placed!</h2>
+      <p class="success-lead">Thank you for choosing AURA Sound Labs. We have received your order and our fulfillment hub has commenced packing.</p>
+      <div class="order-invoice-sheet" id="order-invoice-content"></div>
+      <div class="success-actions">
+        <button type="button" class="btn btn-primary" onclick="window.print()">Print Official Invoice</button>
+        <a href="catalog.html" class="btn btn-secondary">Continue Browsing Store</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header"><h3>Your Shopping Bag</h3><button class="close-drawer-btn" id="close-cart-btn">✕</button></div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row"><span>Subtotal</span><strong id="drawer-subtotal-val">₹0</strong></div>
+      <button type="button" class="btn btn-primary btn-block" id="drawer-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo footer-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+        <p class="footer-desc">Architectural acoustics &amp; precision engineering.</p>
+      </div>
+      <div class="footer-col"><h4>Range</h4><ul>
+        <li><a href="product.html?id=pulse-360">Pulse 360</a></li>
+        <li><a href="product.html?id=aura-sphere">AURA Sphere</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Nav</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="catalog.html">Speakers</a></li>
+        <li><a href="technology.html">Engineering</a></li><li><a href="support.html">Support</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Concierge</h4>
+        <p class="footer-contact">support@aurasoundlabs.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center container"><p>&copy; 2026 AURA Sound Labs Inc.</p></div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/state.js"></script>
+  <script src="/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const order = AppState.data.lastOrder;
+      const el = document.getElementById('order-invoice-content');
+      if (!order) {
+        el.innerHTML = '<p style="text-align:center;color:var(--text-muted)">No recent order found. <a href="catalog.html" style="color:var(--accent-cyan)">Browse speakers →</a></p>';
+        return;
+      }
+
+      const itemsHTML = order.items.map(i => `
+        <div class="invoice-data-row">
+          <span>${escapeHTML(i.name)} <span style="color:var(--text-dim)">(${escapeHTML(i.finish)}) × ${i.quantity}</span></span>
+          <strong>${formatMoney(i.priceINR * i.quantity)}</strong>
+        </div>
+      `).join('');
+
+      el.innerHTML = `
+        <div class="invoice-header-row">
+          <div>
+            <strong style="font-size:1rem">Order #${order.id}</strong>
+            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem">${new Date(order.date).toLocaleString()}</div>
+          </div>
+          <div style="text-align:right;font-size:0.85rem">
+            <div>${escapeHTML(order.customer.firstName + ' ' + order.customer.lastName)}</div>
+            <div style="color:var(--text-muted)">${escapeHTML(order.customer.email)}</div>
+          </div>
+        </div>
+        <div style="margin-bottom:1rem">
+          <div style="font-size:0.8rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Items</div>
+          ${itemsHTML}
+        </div>
+        <hr class="summary-sep">
+        <div class="invoice-data-row"><span>Subtotal</span><strong>${formatMoney(order.subtotalINR)}</strong></div>
+        <div class="invoice-data-row"><span>Delivery</span><strong>${escapeHTML(DELIVERY_RATES[order.deliverySpeed].name)}</strong></div>
+        <div class="invoice-data-row"><span>Payment Method</span><strong>${escapeHTML(order.paymentMethod)}</strong></div>
+        <hr class="summary-sep">
+        <div class="invoice-data-row" style="font-size:1.1rem"><strong>Total</strong><strong style="color:var(--accent-cyan)">${formatMoney(order.subtotalINR)}</strong></div>
+        <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px dashed var(--border-subtle);font-size:0.85rem;color:var(--text-muted)">
+          <strong style="color:var(--text-main)">Shipping to:</strong><br>
+          ${escapeHTML(order.customer.street)}${order.customer.landmark ? ', ' + escapeHTML(order.customer.landmark) : ''}<br>
+          ${escapeHTML(order.customer.city)}, ${escapeHTML(order.customer.state)} — ${escapeHTML(order.customer.pincode)}<br>
+          Phone: ${escapeHTML(order.customer.phone)}
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>

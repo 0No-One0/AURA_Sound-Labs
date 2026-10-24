@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — AURA Sound Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/components.css">
+  <link rel="stylesheet" href="/pages.css">
+</head>
+<body>
+  <aside class="announcement-bar"><div class="container"><p>Complimentary Express Shipping on all orders over ₹5,000 / $60</p></div></aside>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+      <nav class="site-nav"><ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-route="home">Home</a></li>
+        <li><a href="catalog.html" class="nav-link" data-route="catalog">Speakers</a></li>
+        <li><a href="technology.html" class="nav-link" data-route="technology">Acoustic Tech</a></li>
+        <li><a href="support.html" class="nav-link" data-route="support">Support &amp; Warranty</a></li>
+      </ul></nav>
+      <div class="header-actions">
+        <select id="currency-toggle" class="currency-select"><option value="INR" selected>INR (₹)</option><option value="USD">USD ($)</option></select>
+        <button type="button" class="btn btn-secondary cart-btn" id="open-cart-btn"><span>🛍</span><span class="cart-text">Bag</span><span class="cart-count-badge" id="cart-counter">0</span></button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"><ul>
+      <li><a href="index.html" data-route="home">Home</a></li>
+      <li><a href="catalog.html" data-route="catalog">Speakers</a></li>
+      <li><a href="technology.html" data-route="technology">Acoustic Tech</a></li>
+      <li><a href="support.html" data-route="support">Support &amp; Warranty</a></li>
+    </ul></nav>
+  </header>
+
+  <main class="container section">
+    <div class="section-header">
+      <span class="tag-pill">Order Processing</span>
+      <h2>Secure Order Checkout</h2>
+      <p class="section-subtitle">Please enter your delivery destination, phone number, and preferred logistics service.</p>
+    </div>
+
+    <div class="checkout-grid">
+      <div class="checkout-form-col">
+        <form id="order-form" novalidate>
+          <fieldset class="form-group">
+            <legend class="group-title">1. Contact &amp; Identification</legend>
+            <div class="form-row">
+              <div class="form-field half">
+                <label for="ord-first-name">First Name <span class="req">*</span></label>
+                <input type="text" id="ord-first-name" placeholder="Aarav" required>
+                <span class="field-error" id="err-first-name"></span>
+              </div>
+              <div class="form-field half">
+                <label for="ord-last-name">Last Name <span class="req">*</span></label>
+                <input type="text" id="ord-last-name" placeholder="Kapoor" required>
+                <span class="field-error" id="err-last-name"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field half">
+                <label for="ord-email">Email Address <span class="req">*</span></label>
+                <input type="email" id="ord-email" placeholder="aarav@example.com" required>
+                <span class="field-error" id="err-email"></span>
+              </div>
+              <div class="form-field half">
+                <label for="ord-phone">Phone Number <span class="req">*</span></label>
+                <div class="phone-input-wrap">
+                  <select id="ord-country-code" class="phone-prefix-select" aria-label="Country Code">
+                    <option value="+91" selected>🇮🇳 +91 (India)</option>
+                    <option value="+1">🇺🇸 +1 (USA)</option>
+                    <option value="+44">🇬🇧 +44 (UK)</option>
+                    <option value="+65">🇸🇬 +65 (Singapore)</option>
+                    <option value="+49">🇩🇪 +49 (Germany)</option>
+                    <option value="+971">🇦🇪 +971 (UAE)</option>
+                    <option value="+61">🇦🇺 +61 (Australia)</option>
+                  </select>
+                  <input type="tel" id="ord-phone" placeholder="98765 43210" required>
+                </div>
+                <span class="field-error" id="err-phone"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend class="group-title">2. Delivery Address</legend>
+            <div class="form-row">
+              <div class="form-field full">
+                <label for="ord-street">Street Address <span class="req">*</span></label>
+                <input type="text" id="ord-street" placeholder="Flat 704, Prestige Heights, Outer Ring Road" required>
+                <span class="field-error" id="err-street"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field half">
+                <label for="ord-landmark">Landmark (Optional)</label>
+                <input type="text" id="ord-landmark" placeholder="Near Cyber City Gate 2">
+              </div>
+              <div class="form-field half">
+                <label for="ord-pincode">Postal / PIN Code <span class="req">*</span></label>
+                <input type="text" id="ord-pincode" placeholder="560103" required>
+                <span class="field-error" id="err-pincode"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field half">
+                <label for="ord-city">City <span class="req">*</span></label>
+                <input type="text" id="ord-city" placeholder="Bengaluru" required>
+                <span class="field-error" id="err-city"></span>
+              </div>
+              <div class="form-field half">
+                <label for="ord-state">State / Province <span class="req">*</span></label>
+                <input type="text" id="ord-state" placeholder="Karnataka" required>
+                <span class="field-error" id="err-state"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend class="group-title">3. Delivery Speed</legend>
+            <div class="delivery-options-stack">
+              <label class="delivery-card">
+                <input type="radio" name="delivery-speed" value="standard" checked>
+                <div class="card-body">
+                  <div class="card-head"><strong>Standard Ground Express (3–5 Days)</strong><span class="badge-price" id="delivery-price-standard">Free</span></div>
+                  <p class="card-desc">Fully insured carbon-neutral courier via Delhivery &amp; Bluedart Air.</p>
+                </div>
+              </label>
+              <label class="delivery-card">
+                <input type="radio" name="delivery-speed" value="priority">
+                <div class="card-body">
+                  <div class="card-head"><strong>Air Priority Dispatch (Next-Day)</strong><span class="badge-price" id="delivery-price-priority">₹499 / $6</span></div>
+                  <p class="card-desc">Orders placed before 4:00 PM dispatched on same-day cargo flights.</p>
+                </div>
+              </label>
+              <label class="delivery-card">
+                <input type="radio" name="delivery-speed" value="hyperlocal">
+                <div class="card-body">
+                  <div class="card-head"><strong>Hyper-Local Express (Within 4 Hours)</strong><span class="badge-price" id="delivery-price-hyperlocal">₹799 / $10</span></div>
+                  <p class="card-desc">Direct warehouse rider fulfillment for major metropolitan zones.</p>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend class="group-title">4. Payment Preference</legend>
+            <div class="payment-modes-grid">
+              <label class="payment-option">
+                <input type="radio" name="payment-method" value="UPI" checked>
+                <span class="option-content">
+                  <span class="option-icon">⚡</span>
+                  <strong>UPI / QR / NetBanking</strong>
+                  <span class="option-sub">GPay, PhonePe, Paytm, BHIM</span>
+                </span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment-method" value="Card">
+                <span class="option-content">
+                  <span class="option-icon">💳</span>
+                  <strong>Credit / Debit Card</strong>
+                  <span class="option-sub">Visa, Mastercard, RuPay, Amex</span>
+                </span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment-method" value="COD">
+                <span class="option-content">
+                  <span class="option-icon">💵</span>
+                  <strong>Cash on Delivery</strong>
+                  <span class="option-sub">Pay at doorstep upon delivery</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-primary btn-large btn-block" id="btn-submit-order">Confirm &amp; Place Order</button>
+        </form>
+      </div>
+
+      <div class="checkout-summary-col">
+        <div class="sticky-summary-box">
+          <h3>Order Summary</h3>
+          <div class="summary-items-list" id="checkout-summary-items"></div>
+          <hr class="summary-sep">
+          <dl class="summary-cost-breakdown">
+            <div class="cost-row"><dt>Items Subtotal</dt><dd id="checkout-subtotal">₹0</dd></div>
+            <div class="cost-row" id="checkout-discount-row" style="display:none;"><dt>Multi-Unit Savings (10%)</dt><dd id="checkout-discount" class="text-green">-₹0</dd></div>
+            <div class="cost-row"><dt>Estimated Delivery</dt><dd id="checkout-delivery">FREE</dd></div>
+            <div class="cost-row"><dt>GST / Sales Tax (18% Included)</dt><dd id="checkout-tax">₹0</dd></div>
+            <hr class="summary-sep">
+            <div class="cost-row grand-total"><dt>Total Amount</dt><dd id="checkout-total">₹0</dd></div>
+          </dl>
+          <div class="security-guarantees">
+            <div class="sec-item">🛡 256-bit Encrypted Order Form</div>
+            <div class="sec-item">🔄 Doorstep Exchange within 30 Days</div>
+            <div class="sec-item">📦 Tamper-Proof Anti-Theft Packaging</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header"><h3>Your Shopping Bag</h3><button class="close-drawer-btn" id="close-cart-btn">✕</button></div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row"><span>Subtotal</span><strong id="drawer-subtotal-val">₹0</strong></div>
+      <button type="button" class="btn btn-primary btn-block" id="drawer-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo footer-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+        <p class="footer-desc">Architectural acoustics &amp; precision engineering.</p>
+      </div>
+      <div class="footer-col"><h4>Range</h4><ul>
+        <li><a href="product.html?id=pulse-360">Pulse 360</a></li>
+        <li><a href="product.html?id=aura-sphere">AURA Sphere</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Nav</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="catalog.html">Speakers</a></li>
+        <li><a href="technology.html">Engineering</a></li><li><a href="support.html">Support</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Concierge</h4>
+        <p class="footer-contact">support@aurasoundlabs.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center container"><p>&copy; 2026 AURA Sound Labs Inc.</p></div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/state.js"></script>
+  <script src="/ui.js"></script>
+  <script src="/checkout.js"></script>
+</body>
+</html>

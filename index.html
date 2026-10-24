@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Sound Labs — Premium Hi-Fi Bluetooth Speakers</title>
+  <meta name="description" content="Experience architectural acoustic precision. Explore AURA's range of high-fidelity wireless Bluetooth speakers engineered for studio-grade clarity anywhere.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/components.css">
+  <link rel="stylesheet" href="/pages.css">
+</head>
+<body>
+
+  <aside class="announcement-bar" aria-label="Special Offers">
+    <div class="container">
+      <p>Complimentary Express Shipping on all orders over ₹5,000 / $60 &bull; 2-Year Full Replacement Warranty Included</p>
+    </div>
+  </aside>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="AURA Sound Labs Homepage">
+        <span class="logo-mark">▲</span>
+        <span class="logo-text">AURA<span>SOUND</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link" data-route="home">Home</a></li>
+          <li><a href="catalog.html" class="nav-link" data-route="catalog">Speakers</a></li>
+          <li><a href="technology.html" class="nav-link" data-route="technology">Acoustic Tech</a></li>
+          <li><a href="support.html" class="nav-link" data-route="support">Support &amp; Warranty</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <select id="currency-toggle" class="currency-select" aria-label="Currency selection">
+          <option value="INR" selected>INR (₹)</option>
+          <option value="USD">USD ($)</option>
+        </select>
+        <button type="button" class="btn btn-secondary cart-btn" id="open-cart-btn" aria-label="View Shopping Bag">
+          <span aria-hidden="true">🛍</span>
+          <span class="cart-text">Bag</span>
+          <span class="cart-count-badge" id="cart-counter">0</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+      <ul>
+        <li><a href="index.html" data-route="home">Home</a></li>
+        <li><a href="catalog.html" data-route="catalog">Speakers</a></li>
+        <li><a href="technology.html" data-route="technology">Acoustic Tech</a></li>
+        <li><a href="support.html" data-route="support">Support &amp; Warranty</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="tag-pill">2026 Acoustic Flagship</span>
+          <h1 class="hero-headline">Sound Engineered for <span class="neon-text-gradient">Modern Architecture.</span></h1>
+          <p class="hero-subtext">Precision-milled acoustic chambers, custom neodymium magnetic drivers, and true lossless 24-bit wireless streaming.</p>
+          <div class="hero-cta-group">
+            <a href="catalog.html" class="btn btn-primary btn-large">Explore All Speakers</a>
+            <a href="product.html?id=pulse-360" class="btn btn-secondary btn-large">Configure Pulse 360</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-num">4.9<span style="color:var(--accent-cyan);font-size:1.2rem">/5</span></div>
+              <div class="hero-stat-label">★★★★★ 2,400+ Reviews</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">48<span style="color:var(--accent-fuchsia);font-size:1.2rem">h</span></div>
+              <div class="hero-stat-label">Max Battery Life</div>
+            </div>
+            <div>
+              <div class="hero-stat-num">360°</div>
+              <div class="hero-stat-label">Spatial Dispersion</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="/Hero lifestyle shot (Home page).png"
+               alt="AURA Pulse 360 Studio Speaker in modern minimalist room" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-logos">
+          <span class="trust-logo">WIRED</span>
+          <span class="trust-logo">TechCrunch</span>
+          <span class="trust-logo">THE VERGE</span>
+          <span class="trust-logo">Sound&amp;Vision</span>
+          <span class="trust-logo">FAST CO.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="tag-pill">The Collection</span>
+          <h2>Precision Sound for Every Space</h2>
+          <p class="section-subtitle">Crafted with aircraft-grade aluminum, acoustic wool weave, and IP67 weather sealing.</p>
+        </div>
+        <div class="featured-products-grid" id="home-featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- VISUALIZER -->
+    <section class="section visualizer-showcase">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="tag-pill">DSP Technology</span>
+          <h2>Dynamic Acoustic Frequency Simulation</h2>
+          <p class="section-subtitle">AURA's custom digital signal processor adjusts driver velocity 48,000 times per second.</p>
+        </div>
+        <div class="visualizer-card">
+          <div class="visualizer-screen">
+            <canvas id="equalizer-canvas" width="840" height="200"></canvas>
+          </div>
+          <div class="visualizer-controls">
+            <div class="profile-mode-selector" role="group" aria-label="Equalizer Profile">
+              <button type="button" class="eq-btn active" data-preset="balanced">Studio Flat</button>
+              <button type="button" class="eq-btn" data-preset="bass">Deep Sub-Bass (+6dB)</button>
+              <button type="button" class="eq-btn" data-preset="spatial">360° Binaural Spatial</button>
+            </div>
+            <div class="visualizer-meta">
+              <span class="indicator-dot"></span> 48-Band FFT Active
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="section">
+      <div class="container">
+        <div style="background:linear-gradient(135deg,rgba(56,189,248,0.12),rgba(217,70,239,0.12));border:1px solid rgba(56,189,248,0.25);border-radius:24px;padding:3.5rem 2rem;text-align:center;">
+          <span class="tag-pill">Early Access</span>
+          <h2 style="font-family:var(--font-display);font-size:2.2rem;margin:0.5rem 0 1rem;">Meet the AURA Sphere</h2>
+          <p style="color:var(--text-muted);max-width:600px;margin:0 auto 2rem;">Levitation-inspired 360° omnidirectional spatial sound, powered by neural acoustic calibration.</p>
+          <a href="product.html?id=aura-sphere" class="btn btn-primary btn-large">Discover AURA Sphere</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+    <div class="cart-drawer-header">
+      <h3>Your Shopping Bag</h3>
+      <button type="button" class="close-drawer-btn" id="close-cart-btn" aria-label="Close Bag">✕</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <strong id="drawer-subtotal-val">₹0</strong>
+      </div>
+      <p class="drawer-tax-note">Shipping &amp; courier options calculated at next step.</p>
+      <button type="button" class="btn btn-primary btn-block" id="drawer-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo footer-logo">
+          <span class="logo-mark">▲</span>
+          <span class="logo-text">AURA<span>SOUND</span></span>
+        </a>
+        <p class="footer-desc">Architectural acoustics, precision engineering, and high-fidelity sound for creators and audiophiles.</p>
+        <p class="footer-location">Headquarters: Bangalore Acoustic Hub, Karnataka, India.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Acoustic Range</h4>
+        <ul>
+          <li><a href="product.html?id=pulse-360">AURA Pulse 360</a></li>
+          <li><a href="product.html?id=aura-sphere">AURA Sphere</a></li>
+          <li><a href="product.html?id=stage-max">AURA Stage Max</a></li>
+          <li><a href="product.html?id=studio-bar">AURA Studio Bar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">All Speakers</a></li>
+          <li><a href="technology.html">Engineering &amp; DSP</a></li>
+          <li><a href="support.html">Warranty Registration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Direct Concierge</h4>
+        <p class="footer-contact">support@aurasoundlabs.com</p>
+        <p class="footer-contact">+91 (080) 4120-AURA</p>
+        <p class="footer-contact">Mon–Sat: 9:00 AM – 8:00 PM IST</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center container">
+      <p>&copy; 2026 AURA Sound Labs Inc. All specifications certified by Acoustic Testing Labs.</p>
+    </div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/state.js"></script>
+  <script src="/ui.js"></script>
+  <script src="/visualizer.js"></script>
+  <script src="/home.js"></script>
+</body>
+</html>

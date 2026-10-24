@@ -1,0 +1,215 @@
+/* ==========================================================================
+   AURA Sound Labs — Layout: Header, Navigation, Footer
+   ========================================================================== */
+
+/* Announcement Bar */
+.announcement-bar {
+    background: linear-gradient(90deg, #0b1528 0%, #1e293b 50%, #0b1528 100%);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    text-align: center;
+    color: #cbd5e1;
+  }
+  
+  /* Site Header */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7, 9, 14, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.8rem;
+    gap: 1.5rem;
+  }
+  
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  .logo-mark { color: var(--accent-cyan); }
+  .logo-text span { color: var(--accent-cyan); font-weight: 400; }
+  
+  .site-nav { flex: 1; display: flex; justify-content: center; }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    position: relative;
+    padding: 0.5rem 0;
+    white-space: nowrap;
+  }
+  
+  .nav-link:hover, .nav-link.active { color: var(--text-main); }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    border-radius: 2px;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .currency-select {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+  }
+  
+  .cart-count-badge {
+    background: var(--accent-cyan);
+    color: #050b14;
+    font-weight: 800;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    min-width: 1.4rem;
+    text-align: center;
+  }
+  
+  /* Mobile nav toggle */
+  .mobile-menu-btn {
+    display: none;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-size: 1.4rem;
+  }
+  
+  .mobile-nav {
+    display: none;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem 1.5rem;
+  }
+  
+  .mobile-nav.open { display: block; }
+  
+  .mobile-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mobile-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  
+  .mobile-nav a:hover, .mobile-nav a.active {
+    background: var(--bg-elevated);
+    color: var(--text-main);
+  }
+  
+  /* Footer */
+  .site-footer {
+    background: #04060a;
+    border-top: 1px solid var(--border-subtle);
+    padding: 4.5rem 0 2rem 0;
+    margin-top: auto;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  
+  .footer-logo { margin-bottom: 1rem; }
+  
+  .footer-desc, .footer-location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-col h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+  
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  
+  .footer-col a {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  .footer-col a:hover { color: var(--accent-cyan); }
+  
+  .footer-contact {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  
+  @media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  
+  @media (max-width: 768px) {
+    .site-nav { display: none; }
+    .mobile-menu-btn { display: block; }
+    .header-container { height: 4.2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }

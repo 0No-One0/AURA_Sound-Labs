@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — AURA Sound Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/components.css">
+  <link rel="stylesheet" href="/pages.css">
+</head>
+<body>
+  <aside class="announcement-bar"><div class="container"><p>Complimentary Express Shipping on all orders over ₹5,000 / $60 &bull; 2-Year Full Replacement Warranty</p></div></aside>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link" data-route="home">Home</a></li>
+          <li><a href="catalog.html" class="nav-link" data-route="catalog">Speakers</a></li>
+          <li><a href="technology.html" class="nav-link" data-route="technology">Acoustic Tech</a></li>
+          <li><a href="support.html" class="nav-link" data-route="support">Support &amp; Warranty</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <select id="currency-toggle" class="currency-select"><option value="INR" selected>INR (₹)</option><option value="USD">USD ($)</option></select>
+        <button type="button" class="btn btn-secondary cart-btn" id="open-cart-btn"><span>🛍</span><span class="cart-text">Bag</span><span class="cart-count-badge" id="cart-counter">0</span></button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"><ul>
+      <li><a href="index.html" data-route="home">Home</a></li>
+      <li><a href="catalog.html" data-route="catalog">Speakers</a></li>
+      <li><a href="technology.html" data-route="technology">Acoustic Tech</a></li>
+      <li><a href="support.html" data-route="support">Support &amp; Warranty</a></li>
+    </ul></nav>
+  </header>
+
+  <main class="container section">
+    <div class="breadcrumb"><a href="catalog.html">← Back to Speakers</a></div>
+
+    <div class="pdp-grid">
+      <div class="pdp-media-column">
+        <div class="pdp-gallery-frame">
+          <img id="pdp-main-image" src="" alt="Product finish showcase" class="pdp-main-img">
+        </div>
+        <div class="pdp-badges-row">
+          <span>✓ Fast Dispatch</span>
+          <span>✓ Official 2-Yr Warranty</span>
+          <span>✓ 30-Day Returns</span>
+        </div>
+      </div>
+
+      <div class="pdp-info-column">
+        <span class="tag-pill" id="pdp-category-pill">Portable Audio</span>
+        <h1 id="pdp-title" class="pdp-title">Loading...</h1>
+        <p class="pdp-tagline" id="pdp-tagline"></p>
+
+        <div class="reviews-summary">
+          <span class="stars">★★★★★</span>
+          <span id="pdp-rating">4.9</span>
+          <span class="review-count" id="pdp-review-count">(0 reviews)</span>
+        </div>
+
+        <div class="pdp-price-box">
+          <span class="pdp-current-price" id="pdp-price">₹0</span>
+          <span class="pdp-original-price" id="pdp-original-price">₹0</span>
+          <span class="pdp-discount-tag" id="pdp-discount-tag">Save ₹0</span>
+        </div>
+
+        <p class="pdp-description" id="pdp-description"></p>
+
+        <div class="customizer-group">
+          <label class="customizer-label">Finish: <strong id="pdp-selected-color-name">—</strong></label>
+          <div class="swatches-row" id="pdp-swatches-container"></div>
+        </div>
+
+        <div class="pdp-action-row">
+          <div class="quantity-stepper">
+            <button type="button" class="stepper-btn" id="pdp-qty-minus" aria-label="Decrease">−</button>
+            <input type="number" id="pdp-qty-val" class="stepper-input" value="1" min="1" max="10" readonly>
+            <button type="button" class="stepper-btn" id="pdp-qty-plus" aria-label="Increase">+</button>
+          </div>
+          <button type="button" class="btn btn-primary btn-large btn-add-bag" id="pdp-add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="pdp-specs-mini">
+          <h3>Core Specifications</h3>
+          <dl class="specs-mini-grid" id="pdp-specs-list"></dl>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping Bag">
+    <div class="cart-drawer-header"><h3>Your Shopping Bag</h3><button class="close-drawer-btn" id="close-cart-btn" aria-label="Close">✕</button></div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row"><span>Subtotal</span><strong id="drawer-subtotal-val">₹0</strong></div>
+      <p class="drawer-tax-note">Shipping calculated at checkout.</p>
+      <button type="button" class="btn btn-primary btn-block" id="drawer-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo footer-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+        <p class="footer-desc">Architectural acoustics &amp; precision engineering.</p>
+      </div>
+      <div class="footer-col"><h4>Range</h4><ul>
+        <li><a href="product.html?id=pulse-360">Pulse 360</a></li>
+        <li><a href="product.html?id=aura-sphere">AURA Sphere</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Nav</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="catalog.html">Speakers</a></li>
+        <li><a href="technology.html">Engineering</a></li><li><a href="support.html">Support</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Concierge</h4>
+        <p class="footer-contact">support@aurasoundlabs.com</p>
+        <p class="footer-contact">+91 (080) 4120-AURA</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center container"><p>&copy; 2026 AURA Sound Labs Inc.</p></div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/state.js"></script>
+  <script src="/ui.js"></script>
+  <script src="/product.js"></script>
+</body>
+</html>

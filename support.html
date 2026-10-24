@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Warranty — AURA Sound Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/components.css">
+  <link rel="stylesheet" href="/pages.css">
+</head>
+<body>
+  <aside class="announcement-bar"><div class="container"><p>Complimentary Express Shipping on all orders over ₹5,000 / $60</p></div></aside>
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+      <nav class="site-nav"><ul class="nav-links">
+        <li><a href="index.html" class="nav-link" data-route="home">Home</a></li>
+        <li><a href="catalog.html" class="nav-link" data-route="catalog">Speakers</a></li>
+        <li><a href="technology.html" class="nav-link" data-route="technology">Acoustic Tech</a></li>
+        <li><a href="support.html" class="nav-link" data-route="support">Support &amp; Warranty</a></li>
+      </ul></nav>
+      <div class="header-actions">
+        <select id="currency-toggle" class="currency-select"><option value="INR" selected>INR (₹)</option><option value="USD">USD ($)</option></select>
+        <button type="button" class="btn btn-secondary cart-btn" id="open-cart-btn"><span>🛍</span><span class="cart-text">Bag</span><span class="cart-count-badge" id="cart-counter">0</span></button>
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav"><ul>
+      <li><a href="index.html" data-route="home">Home</a></li>
+      <li><a href="catalog.html" data-route="catalog">Speakers</a></li>
+      <li><a href="technology.html" data-route="technology">Acoustic Tech</a></li>
+      <li><a href="support.html" data-route="support">Support &amp; Warranty</a></li>
+    </ul></nav>
+  </header>
+
+  <main class="container section">
+  <div class="section-header text-center">
+    <span class="tag-pill">Customer Care</span>
+    <h2>Support &amp; Warranty Services</h2>
+    <p class="section-subtitle">Every official AURA device comes backed...</p>
+  </div>
+
+  <div style="margin-bottom:3rem;border-radius:20px;overflow:hidden;border:1px solid var(--border-subtle);max-height:1024px;">
+    <img src="/Support page (Concierge  customer )care.jpg" alt="AURA customer care concierge team"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
+
+  <div class="support-grid">
+      <div class="support-card">
+        <h3>Register Your Device</h3>
+        <p>Activate your 24-month replacement warranty and receive prioritized firmware updates for your speaker.</p>
+        <form class="support-form" id="warranty-form">
+          <div class="form-field full">
+            <label for="reg-serial">Serial Number (Bottom of Speaker)</label>
+            <input type="text" id="reg-serial" placeholder="e.g. AU-9821-2026" required>
+          </div>
+          <div class="form-field full">
+            <label for="reg-email">Purchase Email</label>
+            <input type="email" id="reg-email" placeholder="you@domain.com" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register Product</button>
+        </form>
+      </div>
+
+      <div class="support-card">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Can I pair multiple AURA speakers together?</summary>
+            <p>Yes. Any two AURA speakers can be paired into a true wireless stereo (L/R) setup, or up to 32 units can be linked in Party Cascade mode using the AURA Connect button.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is your official delivery timeline?</summary>
+            <p>Domestic orders are fulfilled via Bluedart and Delhivery Express (1–2 business days). Hyper-local metro delivery delivers within 4–6 hours.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do warranty replacements work?</summary>
+            <p>If hardware defects arise within 24 months, we schedule a free doorstep courier pickup and dispatch a brand-new factory-sealed replacement within 48 hours.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is the AURA Sphere's levitation mechanism?</summary>
+            <p>The AURA Sphere uses a magnetic levitation cradle that lifts the sphere ~8mm above the base, decoupling it from surface vibrations for pure acoustic isolation.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="cart-drawer-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header"><h3>Your Shopping Bag</h3><button class="close-drawer-btn" id="close-cart-btn">✕</button></div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="drawer-subtotal-row"><span>Subtotal</span><strong id="drawer-subtotal-val">₹0</strong></div>
+      <button type="button" class="btn btn-primary btn-block" id="drawer-checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="brand-logo footer-logo"><span class="logo-mark">▲</span><span class="logo-text">AURA<span>SOUND</span></span></a>
+        <p class="footer-desc">Architectural acoustics &amp; precision engineering.</p>
+      </div>
+      <div class="footer-col"><h4>Range</h4><ul>
+        <li><a href="product.html?id=pulse-360">Pulse 360</a></li>
+        <li><a href="product.html?id=aura-sphere">AURA Sphere</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Nav</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="catalog.html">Speakers</a></li>
+        <li><a href="technology.html">Engineering</a></li><li><a href="support.html">Support</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Concierge</h4>
+        <p class="footer-contact">support@aurasoundlabs.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center container"><p>&copy; 2026 AURA Sound Labs Inc.</p></div>
+  </footer>
+
+  <script src="/data.js"></script>
+  <script src="/state.js"></script>
+  <script src="/ui.js"></script>
+  <script>
+    document.getElementById('warranty-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Warranty registration confirmed. Your unit has been recorded with AURA Care.', 'success');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
